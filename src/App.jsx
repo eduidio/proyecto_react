@@ -1,23 +1,21 @@
-// src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import CategoryMenu from './components/CategoryMenu';
+import {BrowserRouter, Routes,Route} from "react-router-dom"
+import "./App.css"
+import {Navegador } from "./components/NavBar"
+import {ItemListContainer} from "./components/ItemListContainer"
+import {ItemDetailContainer} from "./components/ItemDetailContainer"
 
-function App() {
-  return (
-    <Router>
-      <div>
-        <CategoryMenu />
-        <Routes>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route path="/category/:categoryId" element={<ItemListContainer />} />
-          <Route path="/product/:productId" element={<ItemDetailContainer />} />
-        </Routes>
-      </div>
-    </Router>
-  );
+function app() {
+  return(
+      <BrowserRouter> 
+      <Navegador />
+      
+      <Routes>
+        <Route path="/" element={<ItemListContainer />}  />
+        <Route path="/Item" element={<ItemDetailContainer />} />
+        <Route path="*" element={<h1>404</h1>} />
+      </Routes>
+      </BrowserRouter>
+  )
 }
 
-export default App;
+export default app 
